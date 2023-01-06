@@ -1,0 +1,14 @@
+info:
+  contact: {}
+paths:
+  /auth/email:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses: {}
+      summary: Authentification using email address
+      tags:
+      - auth
+swagger: "2.0"
