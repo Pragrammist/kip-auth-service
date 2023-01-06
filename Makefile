@@ -3,5 +3,14 @@
 run:
 	@go run ./cmd/auth-service/main.go
 
+tests:
+	go test -v ./test/...
+
+clean:
+	go mod tidy && go fmt ./...
+
+lint:
+	golangci-lint run ./...
+
 swag:
-	@swag init -o api/swagger -g ./cmd/auth-service/main.go
+	@swag init --parseInternal -o api/swagger -g ./cmd/auth-service/main.go

@@ -6,8 +6,9 @@ This is a service for register user in profile service via http interface
 - [ ] Docs
 - [ ] Helm chart
 - [ ] Alertmanager & Prometheus
-- [ ] Tests
+- [x] Tests
+- [ ] Config 
 - [ ] Tracer
 - [ ] CI/CD and scripts
-- [ ] Editor config
+- [x] Editor config
 - [ ] Swagger (models aka objects)

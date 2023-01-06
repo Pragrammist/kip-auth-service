@@ -7,6 +7,9 @@ import (
 
 	proto "auth-service/pkg/proto"
 
+	_ "github.com/golang/protobuf/ptypes/timestamp"
+	_ "google.golang.org/protobuf/types/known/timestamppb"
+
 	"encoding/json"
 	"github.com/labstack/echo/v4"
 )
@@ -25,6 +28,7 @@ func NewHandlers(cl proto.ProfileClient) *HandlersBase {
 // @Accept       json
 // @Produce      json
 // @Router /auth/email [post]
+// @Success 200 {object} models.UserResponse
 func (hb *HandlersBase) EmailAuth(c echo.Context) error {
 	req := proto.CreateProfileRequest{}
 	err := json.NewDecoder(c.Request().Body).Decode(&req)
