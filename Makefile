@@ -1,7 +1,7 @@
 # note: call scripts from /scripts
 
 run:
-	@go run ./cmd/auth-service/main.go
+	@go run ./cmd/auth_service/main.go
 
 tests:
 	go test -v ./test/...

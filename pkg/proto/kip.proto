@@ -1,8 +1,45 @@
 syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 
-option csharp_namespace = "GrpcProfileService";
 option go_package = ".;kip";
+option csharp_namespace = "GrpcProfileService";
+
+// Mailer
+message EmailRequest {
+    repeated string to = 1;
+    string contentType = 2;
+    string subject = 3;
+    string body = 4;
+}
+
+message EmailResponse {
+}
+
+service MailerService {
+    rpc SendEmails(EmailRequest) returns (EmailResponse);
+}
+
+// Profile 
+message IsChangedResult{
+    bool IsChagned = 1;
+}
+
+message ChangeEmailRequest{
+    string loginOrEmail = 1;
+    string password = 2;
+    string newEmail = 3;
+}
+
+message ChangePasswordRequest{
+    string loginOrEmail = 1;
+    string password = 2;
+    string newPassword = 3;
+}
+
+message LoginRequest{
+    string loginOrEmail = 1;
+    string password = 2;
+}
 
 message CreateProfileRequest{
     string email = 1;
@@ -30,4 +67,7 @@ message UserResponse{
 
 service Profile{
     rpc CreateProfile (CreateProfileRequest) returns(ProfileResponse);
+    rpc Login(LoginRequest) returns(ProfileResponse);
+    rpc ChangeEmail(ChangeEmailRequest) returns(IsChangedResult);
+    rpc ChangePassword(ChangePasswordRequest) returns(IsChangedResult);
 }

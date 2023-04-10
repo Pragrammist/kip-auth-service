@@ -5,7 +5,7 @@ This is a service for register user in profile service via http interface
 - [ ] Logs exporting
 - [ ] Docs
 - [ ] Helm chart
-- [ ] Alertmanager & Prometheus
+- [ ] Metrics & Alertmanager & Prometheus
 - [x] Tests
 - [ ] Config 
 - [ ] Tracer
